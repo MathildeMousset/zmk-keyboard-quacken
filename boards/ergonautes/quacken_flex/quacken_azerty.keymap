@@ -8,7 +8,7 @@
 
 // Layout-specific actions and symbols.
 #define CMD RC // PC
-// #define CMD RG // Mac
+
 
 // This is a sane default for most US layouts:
 // #include "actions.h"
