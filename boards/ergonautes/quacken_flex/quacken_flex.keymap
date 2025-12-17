@@ -3,7 +3,7 @@
 
 // Timing is key.
 #define HRM // comment this line to disable home-row mods
-#define TAPPING_TERM 300
+#define TAPPING_TERM 200
 #include "timing.h"
 
 // Layout-specific actions and symbols.
