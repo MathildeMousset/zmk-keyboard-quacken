@@ -14,9 +14,6 @@
 #define HRM_J &kp J
 #define HRM_K &kp K
 #define HRM_L &kp L
-#define HRM_A &kp A
-#define HRM_SEMI &kp SEMI
-
 #else
 #define HRM_S &hrm LGUI S
 #define HRM_D &hrm LCTL D
@@ -24,8 +21,6 @@
 #define HRM_J &hrm LALT J
 #define HRM_K &hrm RCTL K
 #define HRM_L &hrm RGUI L
-#define HRM_A &hrm LSHIFT A
-#define HRM_SEMI &hrm RSHIFT SEMICOLON
 #endif
 
 /**
