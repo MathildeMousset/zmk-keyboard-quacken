@@ -3,16 +3,22 @@
 
 // Timing is key.
 #define HRM // comment this line to disable home-row mods
-#define TAPPING_TERM 200
+#define TAPPING_TERM 300
 #include "timing.h"
 
 // Layout-specific actions and symbols.
 #define CMD RC // PC
+// #define CMD RG // Mac
 
 // This is a sane default for most US layouts:
 #include "actions.h"
 #include "symbols.h"
 
+// Other layouts can adjust accordingly:
+// #include "actions_ergol.h"
+// #include "symbols_ergol.h"
+// #include "actions_azerty.h"
+// #include "symbols_azerty.h"
 
 / {
   keymap {
@@ -21,41 +27,27 @@
     // 0. Base layer -- keep the QWERTY key codes to use your OS keyboard layout
     //               -- the Space Cadet layer-tap on the right can be replaced by an AltGr/Enter mod-tap
     //               -- adjust the homerow mods with the #define statements above
-          // defined in timing.h:
-          //      -- sc: same as lt, but with hold-preferred
-          //      -- bsl: better sticky layer
-          //      -- bsk: better sticky key
     default_layer {
       display-name = "Base";
       bindings = <
-        &kp ESC   &kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y  &kp U  &kp I     &kp O   &kp P      &kp C_VOL_UP2
-        &kp TAB   HRM_A  HRM_S  HRM_D  HRM_F  &kp G        &kp H  HRM_J  HRM_K     HRM_L   HRM_SEMI   &kp C_VOL_DN2
-        &kp TILDE &kp Z  &kp X  &kp C  &kp V  &kp B        &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH   &osl 6
-              &bsk LSHIFT LSHIFT  &sc 4 BSPC  &sc 2 ESC    &sc 3 ENTER  &lt 4 SPACE  &bsl 1 1
+        &kp RBKT   &kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y  &kp U  &kp I     &kp O   &kp P      &kp LBKT
+        &kp TILDE  &kp A  HRM_S  HRM_D  HRM_F  &kp G        &kp H  HRM_J  HRM_K     HRM_L   &kp SEMI   &kp SQT
+        &kp LSHIFT &kp Z  &kp X  &kp C  &kp V  &kp B        &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH   &kp RSHIFT
+               &bsk LSHIFT LSHIFT  &sc 4 BSPC  &sc 2 ESC    &sc 2 ENTER  &lt 4 SPACE  &bsl 1 1
       >;
     };
-
-    // 1 = Symbols (altgr ergol)
-    // 2 = Num row (numbers on home row)
-    // 3 = Num nav (space hold dans Kanata, numbers on the right grid and navigation on the left)
-    // 4 = Vim layer
-    // 5 = Function layer
-    // 6 = Extra layer
-
-
 
     // 1. Symbols layer -- with Ergol, basically just an AltGr layer with custom thumb keys
     //                  -- can be redefined for non-AltGr layouts such as QWERTY-ANSI
     symbols_layer {
       display-name = "Symbols";
       bindings = <
-        &trans  S_CARET S_LT    S_GT    S_DLLR  S_PRCNT       S_AT    S_AMPS  S_STAR  S_SQT   S_GRAVE  &mt F9 ENTER
+        &trans  S_CARET S_LT    S_GT    S_DLLR  S_PRCNT       S_AT    S_AMPS  S_STAR  S_SQT   S_GRAVE  &trans
         &trans  S_LBRC  S_LPAR  S_RPAR  S_RBRC  S_EQUAL       S_BSLH  S_PLUS  S_MINUS S_FSLH  S_DQT    &trans
         &trans  S_TILDE S_LBKT  S_RBKT  S_UNDER S_HASH        S_PIPE  S_EXCL  S_SEMI  S_COLON S_QMARK  &trans
                              &trans  &kp SPACE  &bsl 2 2      &trans  &kp RALT  &trans
       >;
     };
-
 
     // 2. NumRow layer -- bring the numbers to the homerow, keep shift+numbers for shortcuts and symbols
     //                 -- space becomes shift+space, which is a no-break space with some OS layouts (e.g. Ergol)
@@ -70,14 +62,13 @@
       >;
     };
 
-
     // 3. NumNav layer -- inverted T arrow cluster on the left hand, numpad on the right hand
     //                 -- can be the only extra layer you need if you're not too picky with number+symbols n-grams
     //                 -- keyboard shortcuts on the left hand are adjusted to the OS layout (Ergol here)
     num_nav_layer {
       display-name = "NumNav";
       bindings = <
-        &trans  &kp TAB  &kp HOME &kp UP   &kp END   &kp PG_UP    S_EQUAL  &kp KP_N7 &kp KP_N8 &kp KP_N9  S_FSLH     &trans
+        &trans  &kp TAB  &kp HOME &kp UP   &kp END   &kp PG_UP    &none    &kp KP_N7 &kp KP_N8 &kp KP_N9  S_FSLH     &trans
         &trans  &kp CAPS &kp LEFT &kp DOWN &kp RIGHT &kp PG_DN    S_MINUS  &kp KP_N4 &kp KP_N5 &kp KP_N6  &kp KP_N0  &trans
         &trans  X_UNDO   X_CUT    X_COPY   X_PASTE   X_SHTAB      S_COMMA  &kp KP_N1 &kp KP_N2 &kp KP_N3  S_DOT      &trans
                                   &trans   &lt 5 DEL &trans       &trans   &mo 5     &trans
@@ -97,7 +88,6 @@
       >;
     };
 
-
     // 5. Function layer -- F1..12 pad on the left hand, HRM on the right hand (with an additional Shift key)
     //                   -- reset and bootloader reset on difficult thumb keys
     //                   -- could be completed with other rare keys
@@ -108,18 +98,6 @@
         &trans  &kp F5  &kp F6  &kp F7  &kp F8  &none         &none &kp LALT        &kp RCTL  &kp RGUI   &kp RSHIFT &trans
         &trans  &kp F9  &kp F10 &kp F11 &kp F12 &none         &none &none           &none     &none      &none      &trans
                                 &trans  &trans  &bootloader   &sys_reset  &trans  &trans
-      >;
-    };
-
-    // 6. Extra layer -- in case your layout requires a few extra keys (behind a dead key?)
-    //                -- here's an example for AZERTY
-    extra_layer {
-      display-name = "Extra";
-      bindings = <
-        &trans    &kp N0  &kp N2  &kp N7  &kp RA(E) &trans     &trans  &kp SQT &trans  &trans  &trans       &trans
-        &trans    &kpc Q  &trans  &kpc E  &kp N6  &kp N8       &trans  &kpc U  &kpc I  &kpc O  &trans       &trans
-        &trans    &trans  &trans  &kp N9  &kp N5  &kp MINUS    &trans  &trans  &trans  &trans  &kp LS(FSLH) &kp LS(LBKT)
-                                  &trans  &kp N4  &trans       &trans  &kp N4  &trans
       >;
     };
   };
