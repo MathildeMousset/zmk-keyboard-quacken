@@ -37,10 +37,11 @@
       >;
     };
 
-    // layer 1 :  symbols (altgr ergol)
+    // layer 1 : Symbols (altgr ergol)
     // layer 2 : NumRow
     // layer 3 : Num and navigation
     // layer 4 : Vim
+    // layer 5 : Functions
 
 
     // 1. Symbols layer -- with Ergol, basically just an AltGr layer with custom thumb keys
