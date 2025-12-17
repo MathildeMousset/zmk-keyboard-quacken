@@ -90,7 +90,7 @@
       bindings = <
         &trans  &kp CAPS X_CLOSE  X_PREV   X_NEXT    &none        &none    &kp HOME &kp PG_DN &kp PG_UP &kp END     &trans
         &trans  X_ALL    X_SAVE   X_SHTAB  &kp TAB   &none        &none    &kp LEFT &kp DOWN  &kp UP    &kp RIGHT   &trans
-        &trans  X_UNDO   X_CUT    X_COPY   X_PASTE   X_REDO       &none    &none     &none     &none     &none  &trans
+        &trans  X_UNDO   X_CUT    X_COPY   X_PASTE   X_REDO       &none    &none    &none     &none     &none       &trans
                                   &trans   &lt 5 DEL &trans       &trans   &mo 5     &trans
       >;
     };
@@ -101,10 +101,10 @@
     function_layer {
       display-name = "Function";
       bindings = <
-        &trans  &kp F1  &kp F2  &kp F3  &kp F4  &none         &none &kp PAUSE_BREAK &kp PSCRN &kp SYSREQ &none      &trans
-        &trans  &kp F5  &kp F6  &kp F7  &kp F8  &none         &none &kp LALT        &kp RCTL  &kp RGUI   &kp RSHIFT &trans
-        &trans  &kp F9  &kp F10 &kp F11 &kp F12 &none         &none &none           &none     &none      &none      &trans
-                                &trans  &trans  &bootloader   &sys_reset  &trans  &trans
+        &trans  &kp F1  &kp F2  &kp F3  &kp F4  &none         &none &kp PAUSE_BREAK  &kp PSCRN &kp SYSREQ &none      &trans
+        &trans  &kp F5  &kp F6  &kp F7  &kp F8  &none         &none &kp LALT         &kp RCTL  &kp RGUI   &kp RSHIFT &trans
+        &trans  &kp F9  &kp F10 &kp F11 &kp F12 &none         &none &none            &none     &none      &none      &trans
+                                &trans  &trans  &bootloader   &sys_reset  &trans    &trans
       >;
     };
   };
