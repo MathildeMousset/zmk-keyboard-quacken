@@ -11,12 +11,12 @@
 // #define CMD RG // Mac
 
 // This is a sane default for most US layouts:
-#include "actions.h"
-#include "symbols.h"
+// #include "actions.h"
+// #include "symbols.h"
 
 // Other layouts can adjust accordingly:
-// #include "actions_ergol.h"
-// #include "symbols_ergol.h"
+#include "actions_ergol.h"
+#include "symbols_ergol.h"
 // #include "actions_azerty.h"
 // #include "symbols_azerty.h"
 
@@ -105,7 +105,7 @@
         &trans  &kp F5  &kp F6  &kp F7  &kp F8  &none         &none &kp LALT         &kp RCTL  &kp RGUI   &kp RSHIFT &trans
         &trans  &kp F9  &kp F10 &kp F11 &kp F12 &none         &none &none            &none     &none      &none      &trans
                                 &trans  &trans  &bootloader   &sys_reset  &trans    &trans
-      >;
+    >;
     };
   };
 };
