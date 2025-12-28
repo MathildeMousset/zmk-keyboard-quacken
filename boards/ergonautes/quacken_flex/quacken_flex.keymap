@@ -27,7 +27,7 @@
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         bindings = <&kp LS(U) &kp A &kp K &kp M &kp L &kp H &kp I &kp D &kp SPACE &kp LS(U) &kp E &kp SEMICOLON &kp S &kp S &kp D &kp K>;
-      };j
+      };
 
     macro_mail: macro_mail {
         compatible = "zmk,behavior-macro";
