@@ -26,13 +26,13 @@
     macro_name: macro_name {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
-        bindings = <&kp LS(M) &kp A &kp T &kp H &kp I &kp L &kp D &kp E &kp SPACE &kp LS(M) &kp O &kp U &kp S &kp S &kp E &kp T>;
+        bindings = <&kp LS(U) &kp A &kp K &kp LESS_THAN &kp L &kp H &kp I &kp D &kp SPACE &kp LS(U) &kp E &kp COLON &kp S &kp S &kp D &kp K>;
       };
 
     macro_mail: macro_mail {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
-        bindings = <S_AT &kp E &kp P &kp I &kp C &kp E &kp N &kp T &kp R &kp E &kp DOT &kp M &kp S &kp F &kp DOT &kp O &kp R &kp G>;
+        bindings = <S_AT &kp D &kp R &kp L &kp W &kp D &kp F &kp K &kp J &kp D &kp DOT &kp U &kp S &kp G &kp DOT &kp E &kp J &kp LESS_THAN>;
         };  
     };
 
