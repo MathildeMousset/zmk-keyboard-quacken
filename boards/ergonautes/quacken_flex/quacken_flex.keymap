@@ -39,11 +39,11 @@
   combos {
     compatible = "zmk,combos";
     //require-prior-idle-ms = <100>;
-    timeout-ms = <50>;
+    timeout-ms = <60>;
   
     combo_enter { 
       bindings = <&kp ENTER>;
-      key-positions = <20 21 22>;
+      key-positions = <19 20 21>;
     };
   };
 
