@@ -21,17 +21,6 @@
 // #include "symbols_azerty.h"
 
 / {
-  combos {
-    compatible = "zmk,combos";
-    require-prior-idle-ms = <100>;
-    timeout-ms = <65>;
-  
-    ENTER_COMBO { 
-      bindings = <&kp ENTER>;
-      key-positions = <19 20 21>;
-    };
-  };
-
   keymap {
     compatible = "zmk,keymap";
 
