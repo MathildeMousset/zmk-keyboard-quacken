@@ -38,12 +38,12 @@
 
   combos {
     compatible = "zmk,combos";
-    require-prior-idle-ms = <100>;
-    timeout-ms = <65>;
+    //require-prior-idle-ms = <100>;
+    timeout-ms = <50>;
   
-    ENTER_COMBO { 
+    combo_enter { 
       bindings = <&kp ENTER>;
-      key-positions = <19 20 21>;
+      key-positions = <8 9 10>;
     };
   };
 
