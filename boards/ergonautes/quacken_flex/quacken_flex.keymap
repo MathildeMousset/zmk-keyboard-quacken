@@ -43,7 +43,7 @@
   
     combo_enter { 
       bindings = <&kp ENTER>;
-      key-positions = <8 9 10>;
+      key-positions = <0 1 2>;
     };
   };
 
