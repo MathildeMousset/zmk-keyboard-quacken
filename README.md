@@ -83,7 +83,20 @@ Once the ZMK/Zephyr toolchain is set, the firmware is built as follows:
 cd /path/to/zmk/app
 west build -p \
   -b quacken_flex \
-  -- -DZMK_EXTRA_MODULES=/home/user/path/to/zmk-keyboard-quacken
+  -- \
+  -DZMK_EXTRA_MODULES=/home/user/path/to/zmk-keyboard-quacken \
+  -DKEYMAP_FILE=/home/user/path/to/zmk-keyboard-quacken/keymaps/quacken.keymap
+```
+
+For Quacken variants built on a Pro Micro, the board is the Pro Micro and the keyboard itself is a shield. Hence, the `west` command becomes:
+
+```bash
+west build -p \
+  -b sparkfun_pro_micro_rp2040 \
+  -- \
+	-DSHIELD=quacken_zero \
+  -DZMK_EXTRA_MODULES=/home/user/path/to/zmk-keyboard-quacken \
+  -DKEYMAP_FILE=/home/user/path/to/zmk-keyboard-quacken/keymaps/quacken.keymap
 ```
 
 The firmware can be found in `zmk/app/build/zephyr/zmk.uf2` and is ready to be [flashed](#flash).
