@@ -84,17 +84,17 @@
 #ifdef LHAND_SPACE
   #define LTHUMB_TT  &hrm LCTL SPACE
   #define RTHUMB_TT  &magic_backspace
-  #define LTHUMB_HRM &lt NAV_LAYER SPACE
+  #define LTHUMB_HRM &lt NAV_LAYER SPACE        // tap-prefered
   #define RTHUMB_HRM &magic_backspace
-  #define LTHUMB_S34 &lt NAV_LAYER SPACE
+  #define LTHUMB_S34 &lt NAV_LAYER SPACE        // tap-prefered
   #define RTHUMB_S34 &magic_backspace_34_keys
 #else
   #define LTHUMB_TT  &mt LCTL BACKSPACE
   #define RTHUMB_TT  &magic_space
-  #define LTHUMB_HRM &sc NAV_LAYER BACKSPACE
-  #define RTHUMB_HRM &lt NAV_LAYER SPACE
-  #define LTHUMB_S34 &sc NAV_LAYER BACKSPACE
-  #define RTHUMB_S34 &lt S34_LAYER SPACE
+  #define LTHUMB_HRM &sc NAV_LAYER BACKSPACE    // hold-prefered
+  #define RTHUMB_HRM &lt NAV_LAYER SPACE        // tap-prefered
+  #define LTHUMB_S34 &sc NAV_LAYER BACKSPACE    // hold-prefered
+  #define RTHUMB_S34 &lt S34_LAYER SPACE        // tap-prefered
 #endif
 
 #ifdef HT_NONE
@@ -107,22 +107,22 @@
 #elifdef HT_THUMB_TAPS
   #define LTHUMB_TUCK   &EZ_SK(LSHIFT)
   #define LTHUMB_HOME   LTHUMB_TT
-  #define LTHUMB_REACH  &mt LGUI REACH_TAP
-  #define RTHUMB_REACH  &mt LALT ENTER
+  #define LTHUMB_REACH  &mt LGUI REACH_TAP       // hold-prefered
+  #define RTHUMB_REACH  &mt LALT ENTER           // hold-prefered
   #define RTHUMB_HOME   RTHUMB_TT
   #define RTHUMB_TUCK   &sym_shift_altgr
 #elifdef HT_HOME_ROW_MODS
   #define LTHUMB_TUCK   &EZ_SK(LSHIFT)
   #define LTHUMB_HOME   LTHUMB_HRM
-  #define LTHUMB_REACH  &sc HRM_LAYER REACH_TAP
-  #define RTHUMB_REACH  &sc HRM_LAYER ENTER
+  #define LTHUMB_REACH  &sc HRM_LAYER REACH_TAP  // hold-prefered
+  #define RTHUMB_REACH  &sc HRM_LAYER ENTER      // hold-prefered
   #define RTHUMB_HOME   RTHUMB_HRM
   #define RTHUMB_TUCK   &sym_shift_altgr
 #elifdef HT_TWO_THUMB_KEYS
-  #define LTHUMB_TUCK   &mt LSHIFT REACH_TAP
+  #define LTHUMB_TUCK   &mt LSHIFT REACH_TAP     // hold-prefered
   #define LTHUMB_HOME   LTHUMB_S34
   #define LTHUMB_REACH  LTHUMB_TUCK
-  #define RTHUMB_REACH  &sc SYMBOLS_LAYER ENTER
+  #define RTHUMB_REACH  &sc SYMBOLS_LAYER ENTER  // hold-prefered
   #define RTHUMB_HOME   RTHUMB_S34
   #define RTHUMB_TUCK   RTHUMB_REACH
 #endif
@@ -150,12 +150,14 @@
 &sl { ignore-modifiers; }; // keep one-shot-mods when chained into a one-shot-layer
 &sk { quick-release; };    // must-have! (lots of false positives otherwise)
 
-// add our common tap-hold parametesr to the default options
+// add our common tap-hold parameters to the default options
+// hold-prefered
 &mt {
   tapping-term-ms = <SHORT_TAPPING_TERM>;
   quick-tap-ms = <QUICK_TAP>;
 };
 
+//tap prefered
 &lt{
   tapping-term-ms = <TAPPING_TERM>;
   quick-tap-ms = <QUICK_TAP>;
@@ -163,6 +165,7 @@
 
 / {
   behaviors {
+
     hrm: homerow_mods {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -171,6 +174,7 @@
       flavor = "tap-preferred";
       bindings = <&kp>, <&kp>;
     };
+
     sc: space_cadet { // same as lt, but with hold-preferred
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -188,6 +192,7 @@
       wait-ms = <0>;
       bindings = <&macro_param_1to1>, <&macro_tap &sl MACRO_PLACEHOLDER>;
     };
+
     bsl: better_sticky_layer {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -204,6 +209,7 @@
       wait-ms = <0>;
       bindings = <&macro_param_1to1>, <&macro_tap &sk MACRO_PLACEHOLDER>;
     };
+
     bsk: better_sticky_key {
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -220,6 +226,7 @@
       mods      = <MOD_LSFT>;
       keep-mods = <MOD_LSFT>;
     };
+
     magic_space: magic_space {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
@@ -227,6 +234,7 @@
       mods      = <MOD_LCTL>;
       keep-mods = <MOD_LCTL>;
     };
+
     magic_backspace_34_keys: magic_backspace_34_keys {
       compatible = "zmk,behavior-mod-morph";
       #binding-cells = <0>;
@@ -247,6 +255,7 @@
     mods      = <(MOD_LCTL|MOD_RCTL|MOD_LGUI|MOD_RGUI|MOD_LALT)>;
     keep-mods = <(MOD_LCTL|MOD_RCTL|MOD_LGUI|MOD_RGUI|MOD_LALT)>;
   };
+
   sym_shift_altgr_inner: sym_shift_altgr_inner {
     compatible = "zmk,behavior-mod-morph";
     #binding-cells = <0>;
@@ -256,7 +265,6 @@
   };
 
   // go to base layer and press mod
-
   lkp: goto_layer_then_keypress {
     compatible = "zmk,behavior-macro-one-param";
     wait-ms = <0>;
@@ -270,6 +278,7 @@
       <&macro_param_1to1>,
       <&macro_release &kp MACRO_PLACEHOLDER>;
   };
+
   losm: goto_layer_then_osm {
     compatible = "zmk,behavior-macro-one-param";
     wait-ms = <0>;
@@ -280,6 +289,7 @@
       <&macro_param_1to1>,
       <&macro_tap &sk MACRO_PLACEHOLDER>;
   };
+  
   lbsk: bsk_on_other_layer {
     compatible = "zmk,behavior-hold-tap";
     #binding-cells = <2>;
