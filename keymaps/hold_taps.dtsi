@@ -243,7 +243,7 @@
       keep-mods = <MOD_LSFT>;
     };
 
-    td0: tap_dance_0 {
+    td_id: tap_dance_0 {
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
       tapping-term-ms = <200>;
