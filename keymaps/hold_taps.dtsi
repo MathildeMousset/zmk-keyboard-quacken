@@ -242,6 +242,14 @@
       mods      = <MOD_LSFT>;
       keep-mods = <MOD_LSFT>;
     };
+
+    td0: tap_dance_0 {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&macro_p>, <&macro_n>, <&macro_pn>, <&macro_ml>;
+    };
+
   };
 
   // XXX this whole AltGr section should probably be inside the `behaviors` branch
