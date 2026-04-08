@@ -40,9 +40,18 @@
       macro_ml: macro_ml {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
-        wait-ms = <30>;
-        tap-ms = <30>;
-        bindings = <&kp U &kp A &kp K &kp M &kp L &kp H &kp I &kp D &kp N &kp U &kp E &kp SEMICOLON &kp S &kp S &kp D &kp K S_AT &kp D &kp R &kp L &kp W &kp D &kp F &kp K &kp J &kp D &kp N &kp U &kp S &kp G &kp N &kp E &kp J &kp COMMA &kp F>;
+        wait-ms = <40>;
+        tap-ms = <40>;
+        bindings 
+          = <&kp U &kp A &kp K &kp M &kp L &kp H &kp I &kp D>
+          , <&kp N>
+          , <&kp U &kp E &kp SEMICOLON &kp S &kp S &kp D &kp> 
+          , <K S_AT>
+          , <&kp D &kp R &kp L &kp W &kp D &kp F &kp K &kp J &kp D>
+          , <&kp N> 
+          , <&kp U &kp S &kp G>
+          , <&kp N> 
+          , <&kp E &kp J &kp COMMA>;
       };  
     };
 

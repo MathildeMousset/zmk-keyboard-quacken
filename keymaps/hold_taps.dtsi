@@ -347,7 +347,7 @@
     tp_num_lock: tap_dance_1 {
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
-      tapping-term-ms = <200>;
+      tapping-term-ms = <250>;
       bindings = <&to NUM_LOCK_LAYER>, <&to BASE_LAYER>;
     };
   };
