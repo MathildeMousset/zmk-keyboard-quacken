@@ -1,4 +1,4 @@
-es// Selenium keymap:
+// Selenium keymap:
 // https://github.com/OneDeadKey/selenium
 
 #ifndef CI_IGNORE_USER_SETTINGS
@@ -34,14 +34,14 @@ es// Selenium keymap:
         #binding-cells = <0>;
         wait-ms = <30>;
         tap-ms = <30>;
-        bindings = <&kp LS(U) &kp A &kp K &kp M &kp L &kp H &kp I &kp D &kp SPACE &kp LS(U) &kp E &kp SEMICOLON &kp S &kp S &kp D &kp K>;
+        bindings = <&macro_p>, <&kp SPACE>, <&macro_n>;
       };
 
       macro_ml: macro_ml {
         compatible = "zmk,behavior-macro";
         #binding-cells = <0>;
         wait-ms = <40>;
-        tap-ms = <40>;
+        tap-ms = <50>;
         bindings 
           = <&kp U &kp A &kp K &kp M &kp L &kp H &kp I &kp D>
           , <&kp N>
