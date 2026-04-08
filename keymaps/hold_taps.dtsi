@@ -113,9 +113,9 @@
     #define LTHUMB_TT &hrm LCTL SPACE
   #endif
   #define RTHUMB_TT  &magic_backspace
-  #define LTHUMB_HRM &lt NAV_LAYER SPACE
+  #define LTHUMB_HRM &lt NAV_LAYER SPACE          // layer tap: tap-prefered
   #define RTHUMB_HRM &magic_backspace
-  #define LTHUMB_S34 &lt NAV_LAYER SPACE
+  #define LTHUMB_S34 &lt NAV_LAYER SPACE          // layer tap: tap-prefered
   #define RTHUMB_S34 &magic_backspace_34_keys
 #else
   #if defined MACOS
@@ -124,10 +124,10 @@
     #define LTHUMB_TT &mt LCTL BACKSPACE
   #endif
   #define RTHUMB_TT  &magic_space
-  #define LTHUMB_HRM &sc NAV_LAYER BACKSPACE
-  #define RTHUMB_HRM &lt NAV_LAYER SPACE
-  #define LTHUMB_S34 &sc NAV_LAYER BACKSPACE
-  #define RTHUMB_S34 &lt S34_LAYER SPACE
+  #define LTHUMB_HRM &sc NAV_LAYER BACKSPACE     // layer tap with hold-prefered
+  #define RTHUMB_HRM &lt NAV_LAYER SPACE         // layer tap: tap-prefered
+  #define LTHUMB_S34 &sc NAV_LAYER BACKSPACE     // layer tap with hold-prefered
+  #define RTHUMB_S34 &lt S34_LAYER SPACE         // layer tap: tap-prefered
 #endif
 
 #ifdef HT_NONE
@@ -147,26 +147,26 @@
   #define LTHUMB_TUCK   &EZ_SK(LSHIFT)
   #define LTHUMB_HOME   LTHUMB_TT
   #if defined MACOS
-    #define LTHUMB_REACH  &mt LCTL REACH_TAP
-    #define RTHUMB_REACH  &mt LGUI ENTER
+    #define LTHUMB_REACH  &mt LCTL REACH_TAP      // mod tap: tap prefered
+    #define RTHUMB_REACH  &mt LGUI ENTER          // mod tap: tap prefered
   #else
-    #define LTHUMB_REACH  &mt LGUI REACH_TAP
-    #define RTHUMB_REACH  &mt LALT ENTER
+    #define LTHUMB_REACH  &mt LGUI REACH_TAP      // mod tap: tap prefered
+    #define RTHUMB_REACH  &mt LALT ENTER          // mod tap: tap prefered
   #endif
   #define RTHUMB_HOME   RTHUMB_TT
   #define RTHUMB_TUCK   &sym_shift_altgr
 #elifdef HT_HOME_ROW_MODS
   #define LTHUMB_TUCK   &EZ_SK(LSHIFT)
   #define LTHUMB_HOME   LTHUMB_HRM
-  #define LTHUMB_REACH  &sc HRM_LAYER REACH_TAP
-  #define RTHUMB_REACH  &sc HRM_LAYER ENTER
+  #define LTHUMB_REACH  &sc HRM_LAYER REACH_TAP   // layer tap with hold-prefered
+  #define RTHUMB_REACH  &sc HRM_LAYER ENTER       // layer tap with hold-prefered
   #define RTHUMB_HOME   RTHUMB_HRM
   #define RTHUMB_TUCK   &sym_shift_altgr
 #elifdef HT_TWO_THUMB_KEYS
-  #define LTHUMB_TUCK   &mt LSHIFT REACH_TAP
+  #define LTHUMB_TUCK   &mt LSHIFT REACH_TAP      // mod tap: tap prefered
   #define LTHUMB_HOME   LTHUMB_S34
   #define LTHUMB_REACH  LTHUMB_TUCK
-  #define RTHUMB_REACH  &sc SYMBOLS_LAYER ENTER
+  #define RTHUMB_REACH  &sc SYMBOLS_LAYER ENTER   // layer tap with hold-prefered
   #define RTHUMB_HOME   RTHUMB_S34
   #define RTHUMB_TUCK   RTHUMB_REACH
 #endif
@@ -188,9 +188,9 @@
 #define QUICK_TAP 200
 #endif
 
-#define EZ_SL(layer)  bsl (layer) (layer)
-#define EZ_SK(mod)    bsk (mod) (mod)
-#define EZ_LSK(mod)   lbsk (mod) (mod)
+#define EZ_SL(layer)  bsl (layer) (layer)   // better sticky layer
+#define EZ_SK(mod)    bsk (mod) (mod)       // better sticky key
+#define EZ_LSK(mod)   lbsk (mod) (mod)      // better sticky key on another layer
 &sl { ignore-modifiers; }; // keep one-shot-mods when chained into a one-shot-layer
 &sk { quick-release; };    // must-have! (lots of false positives otherwise)
 
@@ -200,6 +200,7 @@
   quick-tap-ms = <QUICK_TAP>;
 };
 
+ // tap-prefered
 &lt {
   tapping-term-ms = <TAPPING_TERM>;
   quick-tap-ms = <QUICK_TAP>;
@@ -215,6 +216,7 @@
       flavor = "tap-preferred";
       bindings = <&kp>, <&kp>;
     };
+    // hold-prefered
     sc: space_cadet { // same as lt, but with hold-preferred
       compatible = "zmk,behavior-hold-tap";
       #binding-cells = <2>;
@@ -223,6 +225,7 @@
       flavor = "hold-preferred";
       bindings = <&mo>, <&kp>;
     };
+
 
     // like ZMK's sticky layer (sl) but with a more robust timing
     osl: one_shot_layer {
@@ -240,6 +243,7 @@
       bindings = <&mo>, <&osl>;
     };
 
+
     // like ZMK's sticky key (sk) but with a more robust timing
     osm: one_shot_modifier {
       compatible = "zmk,behavior-macro-one-param";
@@ -255,6 +259,7 @@
       flavor = "tap-preferred";
       bindings = <&kp>, <&osm>;
     };
+
 
     // mod-morphs to restore Shift+Space and Ctrl+Backspace for certain keymaps
     magic_backspace: magic_backspace {
@@ -297,8 +302,8 @@
       keep-mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
-    // go to base layer and press mod
 
+    // go to base layer and press mod
     lkp: goto_layer_then_keypress {
       compatible = "zmk,behavior-macro-one-param";
       wait-ms = <0>;
