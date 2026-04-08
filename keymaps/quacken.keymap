@@ -19,10 +19,10 @@
     base_layer: base_layer {
       display-name = "Base";
       bindings = <
-        &kp DEL    &kp Q  &kp W  &kp E  &kp R  &kp T       &kp Y  &kp U  &kp I     &kp O   &kp P      &trans
-        &kp SPACE HRM_A  HRM_S  HRM_D  HRM_F  &kp G        &kp H  HRM_J  HRM_K     HRM_L   HRM_SEMI   &trans
-        &kp ENTER &kp Z  &kp X  &kp C  &kp V  &kp B        &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH   &to NUM_LOCK_LAYER
-                LTHUMB_TUCK  LTHUMB_HOME  LTHUMB_REACH    RTHUMB_REACH  RTHUMB_HOME  RTHUMB_TUCK
+        &kp DEL                   &kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y  &kp U  &kp I     &kp O   &kp P      &trans
+        &lt FN_MEDIA_LAYER SPACE  HRM_A  HRM_S  HRM_D  HRM_F  &kp G        &kp H  HRM_J  HRM_K     HRM_L   HRM_SEMI   &lt FN_MEDIA_LAYER SPACE
+        &kp ENTER                 &kp Z  &kp X  &kp C  &kp V  &kp B        &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH   &to NUM_LOCK_LAYER
+            LTHUMB_TUCK  LTHUMB_HOME  LTHUMB_REACH    RTHUMB_REACH         RTHUMB_HOME  RTHUMB_TUCK
       >;
     };
 
