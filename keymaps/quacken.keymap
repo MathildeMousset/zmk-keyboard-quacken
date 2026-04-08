@@ -42,7 +42,7 @@
         #binding-cells = <0>;
         wait-ms = <30>;
         tap-ms = <30>;
-        bindings = <&kp U &kp A &kp K &kp M &kp L &kp H &kp I &kp D &kp COMMA &kp U &kp E &kp SEMICOLON &kp S &kp S &kp D &kp K &kp RPAR &kp D &kp R &kp L &kp W &kp D &kp F &kp K &kp J &kp D &kp N &kp U &kp S &kp G &kp N &kp E &kp J &kp COMMA &kp F>;
+        bindings = <&kp U &kp A &kp K &kp M &kp L &kp H &kp I &kp D &kp N &kp U &kp E &kp SEMICOLON &kp S &kp S &kp D &kp K S_AT &kp D &kp R &kp L &kp W &kp D &kp F &kp K &kp J &kp D &kp N &kp U &kp S &kp G &kp N &kp E &kp J &kp COMMA &kp F>;
       };  
     };
 
