@@ -329,5 +329,14 @@
       flavor = "tap-preferred";
       bindings = <&lkp>, <&losm>;
     };
+
+
+    // Tap dance behaviour no ms
+    td_id: tap_dance_0 {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&macro_p>, <&macro_n>, <&macro_pn>, <&macro_ml>;
+    };
   };
 };
