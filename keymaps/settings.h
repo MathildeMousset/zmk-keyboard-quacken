@@ -93,3 +93,9 @@
 // Beware: this increases the typing load of the left thumb.
 
 // #define LEFT_HAND_SPACE
+
+
+// MATNAV navigation: uncomment the following line to use the NavNav layer
+// instead of the Vimnav layer in Vim mode (thumbs are as VIM option, so is
+// the numrow)
+#define MATNAV_NAVIGATION
