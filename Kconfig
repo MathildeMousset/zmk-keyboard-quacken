@@ -2,3 +2,5 @@ config ZMK_BEHAVIOR_DEAD_KEY
   bool
   default y
   depends on DT_HAS_ZMK_BEHAVIOR_DEAD_KEY_ENABLED
+
+CONFIG_ZMK_POINTING=y
