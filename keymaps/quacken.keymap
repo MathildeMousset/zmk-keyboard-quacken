@@ -8,6 +8,7 @@
 #include "aliases.h"      // symbols, actions, non-ASCII chars
 #include "mappings.dtsi"  // key mapping helpers and macros
 #include "hold_taps.dtsi" // thumb keys and homerow mods
+#include <dt-bindings/zmk/pointing.h> // Necessary for mouse stuff
 
 / {
 
@@ -146,6 +147,19 @@
                                 &trans  &trans  &bootloader       &sys_reset  &trans  &studio_unlock
       >;
     };
+
+    // 7. Left-hand layer   -- some useful keys for when using the mouse (not a miror layer)
+    //                      -- try out alternative shape for volume
+    //                      -- test some mouse actions as well. Might go to other layer… or not if I like it.
+    left_hand_layer: left_hand_layer {
+      display-name = "LeftHand";
+        bindings = <
+          &trans  &kp DEL    &kp C_VOL_UP   &kp UP    &none      &none       &msc SCRL_UP    &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &none            &trans
+          &trans  &kp SPACE  &kp LEFT       &kp DOWN  &kp RIGHT  &kp PSCRN   &msc SCRL_LEFT  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_RIGHT  &trans
+          &trans  &kp ENTER  &kp C_VOL_DN   &none     &none      &none       &msc SCRL_DOWN  &none           &none           &none            &none            &trans
+                                            &trans  &trans  &trans           &trans  &trans  &trans
+        >;
+      };
   };
 };
 
