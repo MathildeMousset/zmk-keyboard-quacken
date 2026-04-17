@@ -156,7 +156,7 @@
       display-name = "LeftHand";
         bindings = <
           &trans  &kp DEL    &kp C_VOL_UP   &kp UP    &none      &none       &msc SCRL_UP    &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &none            &trans
-          &trans  &kp SPACE  &kp LEFT       &kp DOWN  &kp RIGHT  &kp PSCRN   &trans          &trans          &trans          &trans           &trans           &trans
+          &trans  &kp SPACE  &kp LEFT       &kp DOWN  &kp RIGHT  &kp PSCRN   &msc SCRL_LEFT  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_RIGHT  &trans
           &trans  &kp ENTER  &kp C_VOL_DN   &none     &none      &none       &trans          &trans          &trans          &trans           &trans           &trans
                                             &trans  &trans  &trans           &trans  &trans  &trans
         >;
