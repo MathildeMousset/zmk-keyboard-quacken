@@ -155,8 +155,8 @@
     left_hand_layer: left_hand_layer {
       display-name = "LeftHand";
         bindings = <
-          &trans  &kp DEL    &kp C_VOL_UP   &kp UP    &none      &none       &trans    &trans       &trans    &trans        &trans            &trans
-          &trans  &kp SPACE  &kp LEFT       &kp DOWN  &kp RIGHT  &kp PSCRN   &trans    &trans       &trans    &trans        &trans            &trans
+          &trans  &kp DEL    &kp C_VOL_UP   &kp UP    &none      &none       &msc SCRL_UP    &trans       &trans    &trans        &trans            &trans
+          &trans  &kp SPACE  &kp LEFT       &kp DOWN  &kp RIGHT  &kp PSCRN   &trans          &trans       &trans    &trans        &trans            &trans
           &trans  &kp ENTER  &kp C_VOL_DN   &none     &none      &none       &trans    &trans       &trans    &trans        &trans            &trans
                                             &trans  &trans  &trans           &trans  &trans  &trans
         >;
