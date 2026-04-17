@@ -8,6 +8,8 @@
 #include "aliases.h"      // symbols, actions, non-ASCII chars
 #include "mappings.dtsi"  // key mapping helpers and macros
 #include "hold_taps.dtsi" // thumb keys and homerow mods
+#include <dt-bindings/zmk/pointing.h> // Maybe necessary for mouse stuff, although I did not create it
+// Seems to exist here https://github.com/zmkfirmware/zmk/blob/main/app/include/dt-bindings/zmk/pointing.h
 
 / {
 
