@@ -351,7 +351,6 @@
       bindings = <&lkp>, <&losm>;
     };
 
-
     // Fancy behaviors for one-handed Alt(+Shift)+{tab,backtick}
     mhsc: space_cade_with_held_mods {
       compatible = "zmk,behavior-mod-hold";
@@ -376,7 +375,6 @@
       keep-mods = <(MOD_LALT|MOD_LGUI)>;
     };
 
-    
     // Tap dance behaviour no ms
     td_id: tap_dance_0 {
       compatible = "zmk,behavior-tap-dance";
