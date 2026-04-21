@@ -131,7 +131,7 @@
       bindings = <
         &trans  &none    X_CTL_W  &vim_prev &vim_next   &none          &kp PG_UP     &kp HOME    &kp UP     &kp END    &none   &trans
         &trans  X_ALL    X_SAVE   X_SHTAB   &kp TAB     &none          &kp PG_DN     &kp LEFT    &kp DOWN   &kp RIGHT  &none   &trans
-        &trans  X_UNDO   X_CUT    X_COPY    X_PASTE     X_REDO         &kp K_CMENU   &none       &none      &none      &none   &trans
+        &trans  X_UNDO   X_CUT    X_COPY    X_PASTE     X_REDO         &none         &kp K_CMENU &none      &none      &none   &trans
           &kp CAPS  &sc FN_MEDIA_LAYER DEL  &mo NUM_ROW_LAYER      &trans  &mo FN_MEDIA_LAYER  &EZ_LSK(RALT)
       >;
     };
@@ -169,10 +169,10 @@
     left_hand_layer: left_hand_layer {
       display-name = "LeftHand";
         bindings = <
-          &trans  &kp DEL    &kp C_VOL_UP   &kp UP    &none      &none       &msc SCRL_UP    &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &none            &trans
-          &trans  &kp SPACE  &kp LEFT       &kp DOWN  &kp RIGHT  &kp PSCRN   &msc SCRL_LEFT  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_RIGHT  &trans
-          &trans  &kp ENTER  &kp C_VOL_DN   &none     &none      &none       &msc SCRL_DOWN  &none           &none           &none            &none            &trans
-                                            &trans  &trans  &trans           &trans  &trans  &trans
+          &trans  &kp DEL    &kp C_VOL_UP   &kp UP    &none      &none         &msc SCRL_UP    &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &none            &trans
+          &trans  &kp SPACE  &kp LEFT       &kp DOWN  &kp RIGHT  &kp PSCRN     &msc SCRL_LEFT  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_RIGHT  &trans
+          &trans  &kp ENTER  &kp C_VOL_DN   &none     &none      &none         &msc SCRL_DOWN  &none           &none           &none            &none            &trans
+                                            &trans  &trans  &trans             &trans  &trans  &trans
         >;
       };
   };
