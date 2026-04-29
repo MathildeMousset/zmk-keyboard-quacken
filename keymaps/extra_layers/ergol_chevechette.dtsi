@@ -113,12 +113,13 @@
 
     // This layer is ignored (and useless) if ENABLE_FANCY_DEAD_KEYS is defined
     // I have no idea what this does…
+    // Oh, it makes sure that the caps letters work for our new letters in the typography layer. Align with the one_dead_key layer!
     shifted_one_dead_key {
       display-name = "1dkShift";
       bindings = <
-        &trans   &odks Q  &odks W  &odks E  &odks R  &kp LS(Z)      &odks N  &kp LS(Y)    &odks I     &odks O   &odks P    &trans
+        &trans   &odks Q  &odks W  &odks E  &odks R  &kp LS(Z)      &odks N  &kp LS(FSLH) &odks I     &odks O   &odks P    &trans
         &trans   &odks A  &odks S  &odks D  &odks F  &kp LS(B)      &odks H  &odks J      &odks K     &odks L   &odks SEMI &trans
-        &trans   &odks Q  &odks Z  &odks C  &odks V  &trans         &trans   &kp LS(FSLH) &odks COMMA &odks DOT &odks P    &trans
+        &trans   &odks Q  &odks Z  &odks C  &odks V  &trans         &trans   &kp LS(Y)    &odks COMMA &odks DOT &odks P    &trans
                             &trans   &odks SPACE  &trans      &trans   &odks SPACE  &trans
       >;
     };
