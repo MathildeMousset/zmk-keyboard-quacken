@@ -193,4 +193,6 @@
   #include "extra_layers/bepo.dtsi"
 #elif defined KB_LAYOUT_ERGOL && defined HUMMINGBIRD
   #include "extra_layers/ergol_hummingbird.dtsi"
+#elif defined KB_LAYOUT_ERGOL && defined CHEVECHETTE
+  #include "extra_layers/ergol_chevechette.dtsi"
 #endif
