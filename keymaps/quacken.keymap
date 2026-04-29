@@ -131,8 +131,8 @@
       bindings = <
         &trans  X_ALL    X_CTL_W  &vim_prev &vim_next   &none           &kp PG_UP     &kp HOME    &kp UP     &kp END    &none   &trans
         &trans  X_UNDO   X_SAVE   X_SHTAB   &kp TAB     X_REDO          &kp PG_DN     &kp LEFT    &kp DOWN   &kp RIGHT  &none   &trans
-        &trans  &none    X_CUT    X_COPY    X_PASTE     &none           &none         &kp K_CMENU &none      &none      &none   &trans
-          &kp CAPS  &sc FN_MEDIA_LAYER DEL  &mo NUM_ROW_LAYER           &trans  &mo FN_MEDIA_LAYER  &EZ_LSK(RALT)
+        &trans  &none    X_CUT    X_COPY    X_PASTE     &none           &none         &kp K_CMENU &kp CAPS   &none      &none   &trans
+          &trans  &sc FN_MEDIA_LAYER DEL  &mo NUM_ROW_LAYER           &trans  &mo FN_MEDIA_LAYER  &EZ_LSK(RALT)
       >;
     };
 
