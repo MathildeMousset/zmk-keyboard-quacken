@@ -1,17 +1,30 @@
 // Attempt at defining a chevechette keymap, that has only two keys on the internal column.
-// This is a rework of the hummingbird system, but hopefully simplified a bit.
-// Who knows, maybe one day I’ll remove another key on the fifth column as well. But let’s start small.
+// This is a rework of the hummingbird system
 
-// Nuke: En gros, oui. En pratique, tu peux configurer pour virer les touches du haut et tout remonter d’un 
-// cran (il me semble que @AstroCephale a fait ça pour l’index gauche sur son hummingbird), mais ça rendrait 
-// la heatmap vraiment pas ouf d’avoir le l en haut, donc je recommande pas trop pour la colonne droite
+// To configurate keyboards with median positions, we need to move some of the base layer letters
+// to the Typography layer (accessible with the 1DK). But we also need to modify the symbols and the other layers.
 
-// Nuke au sujet du J et du point : C’est fait parce que sur un Hummingbird, c’est les touches [B](b) et [N](point) qui sautent 
-// sur les index en extension. Le truc c’est que ça retire le point, et c’est vraiment chiant à rattraper avec la 
+// The configuration in this file replaces the base layer with a layer with a system to modify the typographic layer.
+// It also provides a new typographic layer, a new symbol layer with a system to access a secondary symbol layer.
+
+// This page does not replace the navigation layers or the numeric layers, so you need to deal with that in the
+// main keymap as well.
+
+
+// ####### FAQ #######
+
+// WHY NOT MOVE THE POINT AND KEEP L AND J AS MEDIAN KEYS?
+//  Nuke au sujet du J et du point : C’est fait parce que sur un Hummingbird, c’est les touches [B](b) et [N](point) qui sautent 
+// sur les index en extension basse. Le truc c’est que ça retire le point, et c’est vraiment chiant à rattraper avec la 
 // touche typo (vu qu’il y a non seulement pleins de symboles possible à faire, mais en plus il faut l’espace 
 // insécable avant le deux-points). Du coup j’esquive ce problème en inversant le j et le point, pour que ça soit 
 // le j qui passe en typo. De mon expérience, à l’usage c’est beaucoup plus simple de réapprendre la position du 
 // point que de le rattraper après coup.
+
+// OK THEN, WHY NOT KEEPING THE POINT AND THE l IN THE INSIDE COLUMN?
+// Nuke: En pratique, tu peux configurer pour virer les touches du haut et tout remonter d’un 
+// cran (il me semble que @AstroCephale a fait ça pour l’index gauche sur son hummingbird), mais ça rendrait 
+// la heatmap vraiment pas ouf d’avoir le l en haut, donc je recommande pas trop pour la colonne droite
 
 
 #define ODK_LAYER        EXTRA_LAYERS_START_INDEX
@@ -19,11 +32,11 @@
 #define EXTRA_SYM_LAYER (EXTRA_LAYERS_START_INDEX + 2)
 
 // Override the base layer to replace Ergo‑L’s OneDeadKey
-// Par rapport à la couche hummingbird, j’ai remis les colonnes des auriculaires en normal, et porté mes sixièmes colonnes.
-// Donc les auriculaires bas devraient marche. Ceci étant dit, j’ai gardé l’implémentation de ces touches là plus loin 
-// au cas où je veuille vraiment m’entraîner 
-// il y a l’inversion du J et du point comme expliqué plus haut. Ça va être relou pour l’entrainement dans la mesure où le
-// point va être sur une touche chiante en ce moment.
+//      -- Par rapport à la couche hummingbird, j’ai remis les colonnes des auriculaires en normal, et porté mes sixièmes colonnes.
+//      -- Donc les auriculaires bas marchent encore pour le momen. J’ai néanmoins gardé l’implémentation de ces touches là plus loin 
+//         au cas où je veuille réduire aussi la cinquème colonne.
+//      -- Il y a l’inversion du J et du point comme expliqué plus haut. Ça va être relou pour l’entrainement dans la mesure où le
+//         point va être sur une touche chiante en ce moment.
 &base_layer {
   display-name = "Base";
   bindings = <
@@ -35,10 +48,10 @@
 };
 
 // Override the symbols layer to add a sticky layer to the missing symbols
-// The left-reach thumb now accesses the extra layer on hold, and enter on tap I think
-// Je rappatrie les symboles pour les auriculaires bas, ça reste à trois touches pour le moment.
-// Je remplace le underscore de cette couche par le hashtag, car je n’utilisais que celui de la touche morte anyway.
-// Et je turbocharge les sixièmes colonnes pour éviter la couche extra symboles (elle sera là, mais je tente le backup)
+//      -- The left-reach thumb now accesses the extra layer on hold, and enter on tap I think
+//      -- Je remets les symboles pour les auriculaires bas, ça reste à trois touches pour le moment sur la cinquième colonne.
+//      -- Je remplace le underscore de cette couche par le hashtag, car je n’utilisais que celui de la touche morte.
+//      -- Et je turbocharge les sixièmes colonnes pour éviter la couche extra symboles (elle sera là, mais je tente le backup)
 &symbols_layer {
   display-name = "Symbols";
   bindings = <
@@ -82,12 +95,13 @@
     compatible = "zmk,keymap";
 
 
-    // The new typo layer. I think the odk [letter] means that it gets the normal typo layer value for this letter.
-    // Add the new letters ane defined here the usual way.
-    // Le Z et le B sont sur la colonne du milieu gauche.
-    // Par contre le Y (le J-ergo) se retrouve sur le M-ergo, et je n’aime pas cet emplacement. Ptet que ça s’enchaîne bien pour les "j’" ?
-    // Le forward slash (le K-ergo) se déplace sur sur le H-ergo.
-    // Monta demande est-ce que vraiment on utilise tous les tirets… Je me rappelle que j’ai une sixième colonne et que je peux y planquer des trucs peu utiles…
+    // The turbocharged typo layer. 
+    //      -- I think the odk [letter] means that it gets the normal typo behaviour value for this letter.
+    //      -- Add the new letters that do not fit the alpha layer anymore.
+    //      -- The Z and B move to the left inside column
+    //      -- The Y (J in ergol) and FSLH (K in ergol) can go to the M-ergo and the H-ergo. Since I am not confortale
+    //         with the M in ergol in general, I’ll move the Y (J in ergol) to the H-ergo key and the FSLH (K in ergol)
+    //         FSLH (K in ergol) to the M-ergol
     one_dead_key {
       display-name = "1dk";
       bindings = <
@@ -99,7 +113,7 @@
     };
 
     // This layer is ignored (and useless) if ENABLE_FANCY_DEAD_KEYS is defined
-    // whatever this is used for…
+    // I have no idea what this does…
     shifted_one_dead_key {
       display-name = "1dkShift";
       bindings = <
@@ -110,8 +124,9 @@
       >;
     };
 
-    // Extra layer for the symbols that don’t fit on the symbol layer anymere
-    // Elle est là, mais je tente quand même de booster les sixièmes colonnes de la couche symbole normale pour tester sans
+    // Extra layer for the symbols that don’t fit on the symbol layer anymore
+    //      -- I am keeping it here, and perhaps I should try with it at some point, but I moved the symbols to 
+    //         to the sixth colums of the Typography layer 
     extra_symbols {
       display-name = "ExtraSymbols";
       bindings = <
