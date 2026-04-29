@@ -109,3 +109,14 @@
 // instead of the Vimnav layer in Vim mode (thumbs are as VIM option, so is
 // the numrow)
 #define MATNAV_NAVIGATION
+
+// [Experimental]
+// Uncomment one of the following lines to enable layouts adapted to smaller keyoards
+
+// Activate the chevêchette layout
+// Supposed to keep the fifthe columns identical to the base layer, but I cheated and also prepared a future 
+// Martinet configuration. Maybe I should just have modified the Hummingird option
+#define CHEVECHETTE
+
+// Activate the HUMMINGBIRD layout
+// #define HUMMINGBIRD
