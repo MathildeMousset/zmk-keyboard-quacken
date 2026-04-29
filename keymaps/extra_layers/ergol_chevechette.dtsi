@@ -94,7 +94,6 @@
   keymap {
     compatible = "zmk,keymap";
 
-
     // The turbocharged typo layer. 
     //      -- I think the odk [letter] means that it gets the normal typo behaviour value for this letter.
     //      -- Add the new letters that do not fit the alpha layer anymore.
