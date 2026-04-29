@@ -119,4 +119,4 @@
 #define CHEVECHETTE
 
 // Activate the HUMMINGBIRD layout
-#define HUMMINGBIRD
+// #define HUMMINGBIRD
