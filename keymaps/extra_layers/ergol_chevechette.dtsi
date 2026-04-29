@@ -2,12 +2,28 @@
 // This is a rework of the hummingbird system, but hopefully simplified a bit.
 // Who knows, maybe one day I’ll remove another key on the fifth column as well. But let’s start small.
 
+// Nuke: En gros, oui. En pratique, tu peux configurer pour virer les touches du haut et tout remonter d’un 
+// cran (il me semble que @AstroCephale a fait ça pour l’index gauche sur son hummingbird), mais ça rendrait 
+// la heatmap vraiment pas ouf d’avoir le l en haut, donc je recommande pas trop pour la colonne droite
+
+// Nuke au sujet du J et du point : C’est fait parce que sur un Hummingbird, c’est les touches [B](b) et [N](point) qui sautent 
+// sur les index en extension. Le truc c’est que ça retire le point, et c’est vraiment chiant à rattraper avec la 
+// touche typo (vu qu’il y a non seulement pleins de symboles possible à faire, mais en plus il faut l’espace 
+// insécable avant le deux-points). Du coup j’esquive ce problème en inversant le j et le point, pour que ça soit 
+// le j qui passe en typo. De mon expérience, à l’usage c’est beaucoup plus simple de réapprendre la position du 
+// point que de le rattraper après coup.
+
+
 #define ODK_LAYER        EXTRA_LAYERS_START_INDEX
 #define ODK_SHIFT_LAYER (EXTRA_LAYERS_START_INDEX + 1)
 #define EXTRA_SYM_LAYER (EXTRA_LAYERS_START_INDEX + 2)
 
 // Override the base layer to replace Ergo‑L’s OneDeadKey
 // Par rapport à la couche hummingbird, j’ai remis les colonnes des auriculaires en normal, et porté mes sixièmes colonnes.
+// Donc les auriculaires bas devraient marche. Ceci étant dit, j’ai gardé l’implémentation de ces touches là plus loin 
+// au cas où je veuille vraiment m’entraîner 
+// il y a l’inversion du J et du point comme expliqué plus haut. Ça va être relou pour l’entrainement dans la mesure où le
+// point va être sur une touche chiante en ce moment.
 &base_layer {
   display-name = "Base";
   bindings = <
