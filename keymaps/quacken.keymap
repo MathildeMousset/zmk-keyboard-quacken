@@ -66,7 +66,7 @@
     base_layer: base_layer {
       display-name = "Base";
       bindings = <
-        &none                     &kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y  &kp U  &kp I     &kp O   &kp P      &td_id
+        &none                     &kp Q  &kp W  &kp E  &kp R  &kp T        &kp Y  &kp U  &kp I     &kp O   &kp P      &none
         &EZ_SL(LEFT_MOUSE_LAYER)  HRM_A  HRM_S  HRM_D  HRM_F  &kp G        &kp H  HRM_J  HRM_K     HRM_L   HRM_SEMI   &lt FN_MEDIA_LAYER SPACE
         &EZ_SL(NAV_NUM_LAYER)     &kp Z  &kp X  &kp C  &kp V  &kp B        &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH   &tp_num_lock
             LTHUMB_TUCK  LTHUMB_HOME  LTHUMB_REACH    RTHUMB_REACH         RTHUMB_HOME  RTHUMB_TUCK
@@ -176,7 +176,7 @@
         bindings = <
           &trans  &kp DEL    &kp C_VOL_UP   &kp UP    &none      &none         &msc SCRL_UP    &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &none            &trans
           &trans  &kp SPACE  &kp LEFT       &kp DOWN  &kp RIGHT  &kp PSCRN     &msc SCRL_LEFT  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_RIGHT  &trans
-          &trans  &kp ENTER  &kp C_VOL_DN   &none     &none      &none         &msc SCRL_DOWN  &none           &none           &none            &none            &trans
+          &trans  &kp ENTER  &kp C_VOL_DN   &none     &none      &none         &msc SCRL_DOWN  &none           &td_id          &none            &none            &trans
                                             &trans  &trans  &trans             &trans  &trans  &trans
         >;
       };
