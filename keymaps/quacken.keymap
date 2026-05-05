@@ -131,7 +131,7 @@
       bindings = <
         &trans  &kp CAPS X_CTL_W  &vim_prev &vim_next   &none          &kp PG_UP     &kp HOME    &kp UP     &kp END    &none   &trans
         &trans  X_ALL    X_SAVE   X_SHTAB   &kp TAB     &none          &kp PG_DN     &kp LEFT    &kp DOWN   &kp RIGHT  &none   &trans
-        &trans  X_UNDO   X_CUT    X_COPY    X_PASTE     X_REDO         &none         &kp K_CMENU &kp CAPS   &none      &none   &trans
+      &trans  X_UNDO   X_CUT    X_COPY    X_PASTE     X_REDO         &none         &kp K_CMENU &kp CAPS   &none      &none   &trans
           &trans  &sc FN_MEDIA_LAYER DEL  &mo NUM_ROW_LAYER      &trans  &mo FN_MEDIA_LAYER  &EZ_LSK(RALT)
       >;
     };
@@ -156,9 +156,9 @@
     fn_media_layer: fn_media_layer {
       display-name = "FnMedia";
       bindings = <
-        &trans  &kp F1   &kp F2   &kp F3   &kp F4  &kp F5         &to NUM_LOCK_LAYER   &kp C_PREV  &kp C_VOL_UP  &kp C_BRI_UP   &kp SLCK      &trans
-        &trans  &kp F6   &kp F7   &kp F8   &kp F9  &kp F10        &none                H_J C_PP    H_K C_MUTE    H_L C_AL_LOCK  H_SEMI PSCRN  &trans
-        &trans  &kp F11  &kp F12  &none    &none   &none          &none                &kp C_NEXT  &kp C_VOL_DN  &kp C_BRI_DN   &kp INS       &trans
+        &trans  &kp F1   &kp F2   &kp F3   &kp F4  &kp F5         &to NUM_LOCK_LAYER   &kp C_PREV  &kp C_VOL_UP  &kp C_BRI_UP   &kp SCROLLLOCK  &trans
+        &trans  &kp F6   &kp F7   &kp F8   &kp F9  &kp F10        &none                H_J C_PP    H_K C_MUTE    H_L C_AL_LOCK  H_SEMI PSCRN    &trans
+        &trans  &kp F11  &kp F12  &none    &none   &none          &none                &kp C_NEXT  &kp C_VOL_DN  &kp C_BRI_DN   &kp INS         &trans
                                 &trans  &trans  &bootloader       &sys_reset  &trans  &studio_unlock
       >;
     };
