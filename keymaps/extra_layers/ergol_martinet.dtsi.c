@@ -1,0 +1,154 @@
+// Attempt at defining a Martinet keymap
+// One key on sixth column, two on fifth and two on the internal column (1-23332).
+
+
+// ###### Why ######
+
+// This is a rework of the hummingbird system from Nuke.
+
+// ##### How does it work? #####
+// To configurate keyboards with median positions, we need to move some of the base layer letters
+// to the Typography layer (accessible with the 1DK), and move the eventual typography characters which get replaced. 
+// But we also need to modify the symbols and the other layers.
+
+// The configuration in this file replaces the normal base layer by a new base layer with a system to modify the typographic layer.
+// It also provides a new typographic layer and a new symbol layer with a system to access a secondary symbol layer.
+
+// This page does not replace the navigation layers or the numeric layers, so you need to deal with that in the
+// main keymap as well.
+
+
+// ####### FAQ #######
+
+// WHY NOT MOVE THE POINT AND KEEP L AND J AS MEDIAN KEYS?
+//  Nuke au sujet du J et du point : C’est fait parce que sur un Hummingbird, c’est les touches [B](b) et [N](point) qui sautent 
+// sur les index en extension basse. Le truc c’est que ça retire le point, et c’est vraiment chiant à rattraper avec la 
+// touche typo (vu qu’il y a non seulement pleins de symboles possible à faire, mais en plus il faut l’espace 
+// insécable avant le deux-points). Du coup j’esquive ce problème en inversant le j et le point, pour que ça soit 
+// le j qui passe en typo. De mon expérience, à l’usage c’est beaucoup plus simple de réapprendre la position du 
+// point que de le rattraper après coup.
+
+// OK THEN, WHY NOT KEEPING THE POINT AND THE l IN THE INSIDE COLUMN?
+// Nuke: En pratique, tu peux configurer pour virer les touches du haut et tout remonter d’un 
+// cran (il me semble que @AstroCephale a fait ça pour l’index gauche sur son hummingbird), mais ça rendrait 
+// la heatmap vraiment pas ouf d’avoir le l en haut, donc je recommande pas trop pour la colonne droite
+
+
+// ####### Let’s do it then #######
+
+#define ODK_LAYER        EXTRA_LAYERS_START_INDEX
+#define ODK_SHIFT_LAYER (EXTRA_LAYERS_START_INDEX + 1)
+#define EXTRA_SYM_LAYER (EXTRA_LAYERS_START_INDEX + 2)
+
+
+// Override the base layer to replace Ergo‑L’s OneDeadKey
+//      -- Par rapport à la couche hummingbird, j’ai remis les colonnes des auriculaires en normal (Z et FSLH), et porté mes sixièmes colonnes.
+//      -- Donc les auriculaires bas marchent encore pour le moment. J’ai néanmoins gardé l’implémentation de ces touches là plus loin 
+//         au cas où je veuille réduire aussi la cinquème colonne.
+//      -- Il y a l’inversion du J et du point comme expliqué plus haut. Ça va être relou pour l’entrainement dans la mesure où le
+//         point va être sur une touche chiante vu que mon clavier actuel est un corbeau.
+//      -- l’acces à numlock est en couche fonction (extension auriculaire)
+&base_layer {
+  display-name = "Base";
+  bindings = <
+    &none                     &kp Q  &kp W  &kp E  &kp R  &kp T        &kp N  &kp U  &kp I     &dead_key &kp P     &none
+    &EZ_SL(LEFT_MOUSE_LAYER)  HRM_A  HRM_S  HRM_D  HRM_F  &kp G        &kp H  HRM_J  HRM_K     HRM_L     HRM_SEMI  &lt FN_MEDIA_LAYER SPACE
+    &none                     &none  &kp X  &kp C  &kp V  &none        &none  &kp M  &kp COMMA &kp DOT   &none     &none
+                            LTHUMB_TUCK  LTHUMB_HOME  LTHUMB_REACH    RTHUMB_REACH  RTHUMB_HOME  RTHUMB_TUCK
+  >;
+};
+
+// Override the symbols layer to add a sticky layer to the missing symbols
+//      -- The left-reach thumb now accesses the extra layer on hold, and enter on tap
+//      -- Je remplace le underscore par le hashtag, car je n’utilisais que celui de la touche morte. Je vire aussi le ?
+//      -- Et mets la tilde et le pipe en sixième colonne
+
+&symbols_layer {
+  display-name = "Symbols";
+  bindings = <
+    &trans   S_CARET S_LT    S_GT    S_DLLR  S_PRCNT       S_AT    S_AMPS  S_STAR  S_SQT   S_GRAVE  &trans
+    S_TILDE  S_LBRC  S_LPAR  S_RPAR  S_RBRC  S_EQUAL       S_BSLH  S_PLUS  S_MINUS S_FSLH  S_DQT    S_PIPE
+    &trans   &none   S_LBKT  S_RBKT  S_HASH  &none         &none   S_EXCL  S_SEMI  S_COLON &none    &trans
+    SYM_NUM_LAYER  &kp SPACE  &sc EXTRA_SYM_LAYER ENTER    &trans  &kp RALT  &trans
+  >;
+};
+
+/ {
+  behaviors {
+    // Swap out the standard dead key for a one-shot layer to override some of the keys
+    dead_key: dead_key {
+      compatible = "zmk,behavior-mod-morph";
+      #binding-cells = <0>;
+      bindings = <&EZ_SL(ODK_LAYER)>, <&kp O>;
+      mods      = <(MOD_LSFT|MOD_RSFT)>;
+      keep-mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+  #ifdef ENABLE_FANCY_DEAD_KEYS
+    #define SHIFT_KEY &EZ_SK(LSHIFT)
+    odk: odk {
+      compatible = "zmk,behavior-dead-key";
+      #binding-cells = <1>;
+      dead-key = <O>;
+    };
+  #else
+    // Macro to tap Ergo‑L’s ODK before the specified key
+    DEAD_KEY(odk, &kp O)
+    #define SHIFT_KEY &EZ_SL(ODK_SHIFT_LAYER)
+  #endif
+    // Same as `odk`, but adds Shift to the specified key
+    DEAD_KEY_SHIFT(odks, &kp O)
+  };
+
+  // Extra layers defined specifically for this keymap.
+  // They are appended at the end of the base keymap.
+  keymap {
+    compatible = "zmk,keymap";
+
+    // The turbocharged typo layer. 
+    //      -- I think the odk [letter] means that it gets the normal typo behaviour value for this letter.
+    //      -- Add the new letters that do not fit the alpha layer anymore.
+    //      -- The Z (Z in ergol too) and B (B in ergol too) move to the left inside column, but their associated 
+    //         typo characters (æ et le tiret long) move to the sixth columns
+    //      -- Since the B replaces the n-tilde (typo on the F-ergo) I move it to replace the typo X, the β that can be done with grec
+    //      -- The Y (J in ergol) and FSLH (K in ergol) can go to the M-ergo and the H-ergo. Since I am not confortale
+    //         with the M in ergol in general, I’ll move the Y (J in ergol) to the H-ergo key and the FSLH (K in ergol)
+    //         FSLH (K in ergol) to the M-ergol. The typo of U (ergo M), mu, disapears as I can do it in grec
+    one_dead_key {
+      display-name = "1dk";
+      bindings = <
+        &trans  &odk Q  &odk W  &odk E  &odk R  &kp Z      &odk N  &kp FSLH  &odk I     &odk O   &odk P    &trans
+        &odk Z  &odk A  &odk S  &odk D  &odk F  &kp B      &odk H  &odk J    &odk K     &odk L   &odk SEMI &odk B
+        &trans  &trans  &odk G  &odk C  &odk V  &trans     &trans  &kp Y     &odk COMMA &odk DOT &trans    &trans
+                        SHIFT_KEY  &trans  &trans          &trans  &odk SPACE  &trans
+      >;
+    };
+
+    // The shifted typo layer
+    // It deals with the shifted characters and new letters on the typo layer 
+    // Align with the one_dead_key layer!!!
+    // Note: this layer is ignored (and useless) if ENABLE_FANCY_DEAD_KEYS is defined
+    shifted_one_dead_key {
+      display-name = "1dkShift";
+      bindings = <
+        &trans   &odks Q  &odks W  &odks E  &odks R  &kp LS(Z)      &odks N  &kp LS(FSLH) &odks I     &odks O   &odks P    &trans
+        &odks Z  &odks A  &odks S  &odks D  &odks F  &kp LS(B)      &odks H  &odks J      &odks K     &odks L   &odks SEMI &odks B
+        &trans   &trans   &odks G  &odks C  &odks V  &trans         &trans   &kp LS(Y)    &odks COMMA &odks DOT &trans     &trans
+                          &trans   &odks SPACE  &trans              &trans   &odks SPACE  &trans
+      >;
+    };
+
+    // Extra layer for the symbols that don’t fit on the symbol layer anymore
+    //      -- I am keeping it here, and perhaps I should try it at some point, but I moved the symbols to 
+    //         the sixth colums of the Typography layer to avoid the mental overload of a new layer
+    extra_symbols {
+      display-name = "ExtraSymbols";
+      bindings = <
+        &trans  &trans  &trans  &trans  &trans  &trans     &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  S_TILDE &trans  &trans  S_HASH  &trans     &trans  S_PIPE  &trans  &trans  S_QMARK &trans
+        &trans  &trans  &trans  &trans  &trans  &trans     &trans  &trans  &trans  &trans  &trans  &trans
+                                &trans  &trans  &trans     &trans  &trans  &trans
+      >;
+    };
+  };
+};
