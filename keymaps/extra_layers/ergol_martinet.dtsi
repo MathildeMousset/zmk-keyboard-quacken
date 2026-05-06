@@ -42,9 +42,6 @@
 
 
 // Override the base layer to replace Ergo‑L’s OneDeadKey
-//      -- Par rapport à la couche hummingbird, j’ai remis les colonnes des auriculaires en normal (Z et FSLH), et porté mes sixièmes colonnes.
-//      -- Donc les auriculaires bas marchent encore pour le moment. J’ai néanmoins gardé l’implémentation de ces touches là plus loin 
-//         au cas où je veuille réduire aussi la cinquème colonne.
 //      -- Il y a l’inversion du J et du point comme expliqué plus haut. Ça va être relou pour l’entrainement dans la mesure où le
 //         point va être sur une touche chiante vu que mon clavier actuel est un corbeau.
 //      -- l’acces à numlock est en couche fonction (extension auriculaire)
