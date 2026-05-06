@@ -70,7 +70,7 @@
   bindings = <
     &trans   S_CARET S_LT    S_GT    S_DLLR  S_PRCNT       S_AT    S_AMPS  S_STAR  S_SQT   S_GRAVE  &trans
     S_TILDE  S_LBRC  S_LPAR  S_RPAR  S_RBRC  S_EQUAL       S_BSLH  S_PLUS  S_MINUS S_FSLH  S_DQT    S_PIPE
-    &trans   S_TILDE S_LBKT  S_RBKT  S_HASH  &none         &none   S_EXCL  S_SEMI  S_COLON S_QMARK  S_QMARK
+    S_UNDER  S_TILDE S_LBKT  S_RBKT  S_HASH  &none         &none   S_EXCL  S_SEMI  S_COLON S_QMARK  S_QMARK
     SYM_NUM_LAYER  &kp SPACE  &sc EXTRA_SYM_LAYER ENTER    &trans  &kp RALT  &trans
   >;
 };
@@ -110,17 +110,18 @@
     // The turbocharged typo layer. 
     //      -- I think the odk [letter] means that it gets the normal typo behaviour value for this letter.
     //      -- Add the new letters that do not fit the alpha layer anymore.
-    //      -- The Z and B move to the left inside column
+    //      -- The Z (Z in ergol too) and B (B in ergol too) move to the left inside column, but their associated 
+    //         typo characters (æ et le tiret long) move to the left sixth column.es
+    //      -- Since the B replaces the n-tilde (typo on the F-ergo) I move it to otheh sixth column (odk G)
     //      -- The Y (J in ergol) and FSLH (K in ergol) can go to the M-ergo and the H-ergo. Since I am not confortale
     //         with the M in ergol in general, I’ll move the Y (J in ergol) to the H-ergo key and the FSLH (K in ergol)
-    //         FSLH (K in ergol) to the M-ergol
-    //      -- The æ was moved to the left sixth column because I can and I can still keep the beta
+    //         FSLH (K in ergol) to the M-ergol. The typo of U (ergo M), mu, moves to the sixth column too (&odk U).
     one_dead_key {
       display-name = "1dk";
       bindings = <
         &trans  &odk Q  &odk W  &odk E  &odk R  &kp Z      &odk N  &kp FSLH  &odk I     &odk O   &odk P    &trans
-        &odk Z  &odk A  &odk S  &odk D  &odk F  &kp B      &odk H  &odk J    &odk K     &odk L   &odk SEMI &trans
-        &trans  &odk Z  &odk X  &odk C  &odk V  &trans     &trans  &kp Y     &odk COMMA &odk DOT &odk FSLH &trans
+        &odk Z  &odk A  &odk S  &odk D  &odk F  &kp B      &odk H  &odk J    &odk K     &odk L   &odk SEMI &odk U
+        &odk B  &odk Z  &odk X  &odk C  &odk V  &trans     &trans  &kp Y     &odk COMMA &odk DOT &odk FSLH &odk G
                           SHIFT_KEY  &trans  &trans        &trans  &odk SPACE  &trans
       >;
     };
@@ -133,8 +134,8 @@
       display-name = "1dkShift";
       bindings = <
         &trans   &odks Q  &odks W  &odks E  &odks R  &kp LS(Z)      &odks N  &kp LS(FSLH) &odks I     &odks O   &odks P    &trans
-        &odks Z  &odks A  &odks S  &odks D  &odks F  &kp LS(B)      &odks H  &odks J      &odks K     &odks L   &odks SEMI &trans
-        &trans   &odks Z  &odks X  &odks C  &odks V  &trans         &trans   &kp LS(Y)    &odks COMMA &odks DOT &odk FSLH  &trans
+        &odks Z  &odks A  &odks S  &odks D  &odks F  &kp LS(B)      &odks H  &odks J      &odks K     &odks L   &odks SEMI &odks U
+        &odks B  &odks Z  &odks X  &odks C  &odks V  &trans         &trans   &kp LS(Y)    &odks COMMA &odks DOT &odk FSLH  &odks G
                               &trans   &odks SPACE  &trans          &trans   &odks SPACE  &trans
       >;
     };
