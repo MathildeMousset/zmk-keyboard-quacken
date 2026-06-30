@@ -119,7 +119,7 @@
 // #define CHEVECHETTE
 
 // Activate the HUMMINGBIRD layout
-// #define HUMMINGBIRD
+#define HUMMINGBIRD
 
 // Activate the MARTINET layout
-#define MARTINET
+// #define MARTINET
