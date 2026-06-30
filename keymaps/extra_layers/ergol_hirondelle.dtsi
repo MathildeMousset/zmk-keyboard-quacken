@@ -127,9 +127,9 @@
     shifted_one_dead_key {
       display-name = "1dkShift";
       bindings = <
-        &trans   &odks Q  &odks W  &odks E  &odks R  &kp LS(Z)      &odks N  &kp LS(FSLH) &odks I     &odks O   &odks P    &trans
-        &odks Z  &odks A  &odks S  &odks D  &odks F  &kp LS(B)      &odks H  &odks J      &odks K     &odks L   &odks SEMI &odks B
-        &trans   &trans   &odks G  &odks C  &odks V  &trans         &trans   &kp LS(Y)    &odks COMMA &odks DOT &trans     &trans
+        &none    &none    &odks W  &odks E  &odks R  &kp LS(Z)      &none    &kp LS(FSLH) &odks I     &odks O   &none       &none 
+        &odks Z  &odks Q  &odks S  &odks D  &odks F  &kp LS(B)      &odks N  &odks J      &odks K     &odks L   &odks P     &odks B
+        &none    &odks A  &odks G  &odks C  &odks V  &trans         &odks H  &kp LS(Y)    &odks COMMA &odks DOT &odks SEMI  &none 
                           &trans   &odks SPACE  &trans              &trans   &odks SPACE  &trans
       >;
     };
