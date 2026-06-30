@@ -123,3 +123,6 @@
 
 // Activate the MARTINET layout
 #define MARTINET
+
+// Activate the  HIRONDELLE layout
+#define HIRONDELLE

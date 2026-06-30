@@ -196,4 +196,6 @@
   #include "extra_layers/ergol_chevechette.dtsi"
 #elif defined KB_LAYOUT_ERGOL && defined MARTINET
   #include "extra_layers/ergol_martinet.dtsi"
+  #elif defined KB_LAYOUT_ERGOL && defined HIRONDELLE
+  #include "extra_layers/ergol_hirondelle.dtsi"
 #endif
