@@ -47,9 +47,9 @@
 &base_layer {
   display-name = "Base";
   bindings = <
-    &none                     &none  &kp W  &kp E  &kp R  &none        &none  &kp U  &kp I     &dead_key  &none     &none
-    &EZ_SL(LEFT_MOUSE_LAYER)  &kp Q  HRM_S  HRM_D  HRM_F  &kp T        &kp N  HRM_J  HRM_K     HRM_L      &kp P     &lt FN_MEDIA_LAYER SPACE
-    &none                     HRM_A  &kp X  &kp C  &kp V  &kp G        &kp H  &kp M  &kp COMMA &kp DOT    HRM_SEMI  &none
+    &none                     &kp Q  &kp W  &kp E  &kp R  &none        &kp N   &kp U  &kp I     &dead_key  &none     &none
+    &EZ_SL(LEFT_MOUSE_LAYER)  HRM_A  HRM_S  HRM_D  HRM_F  &kp T        &kp H   HRM_J  HRM_K     HRM_L      &kp P     &lt FN_MEDIA_LAYER SPACE
+    &none                     &none  &kp X  &kp C  &kp V  &kp G        &trans  &kp M  &kp COMMA &kp DOT    HRM_SEMI  &none
                             LTHUMB_TUCK  LTHUMB_HOME  LTHUMB_REACH    RTHUMB_REACH  RTHUMB_HOME  RTHUMB_TUCK
   >;
 };
