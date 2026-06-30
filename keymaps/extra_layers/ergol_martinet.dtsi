@@ -21,7 +21,7 @@
 // ####### FAQ #######
 
 // WHY NOT MOVE THE POINT AND KEEP L AND J AS MEDIAN KEYS?
-//  Nuke au sujet du J et du point : C’est fait parce que sur un Hummingbird, c’est les touches [B](b) et [N](point) qui sautent 
+// Nuke au sujet du J et du point : C’est fait parce que sur un Hummingbird, c’est les touches [B](b) et [N](point) qui sautent 
 // sur les index en extension basse. Le truc c’est que ça retire le point, et c’est vraiment chiant à rattraper avec la 
 // touche typo (vu qu’il y a non seulement pleins de symboles possible à faire, mais en plus il faut l’espace 
 // insécable avant le deux-points). Du coup j’esquive ce problème en inversant le j et le point, pour que ça soit 
@@ -42,9 +42,8 @@
 
 
 // Override the base layer to replace Ergo‑L’s OneDeadKey
-//      -- Il y a l’inversion du J et du point comme expliqué plus haut. Ça va être relou pour l’entrainement dans la mesure où le
-//         point va être sur une touche chiante vu que mon clavier actuel est un corbeau.
-//      -- l’acces à numlock est en couche fonction (extension auriculaire)
+//      -- There is the inversion of the J and the period, as mentionned.
+//      -- There is an access to the numlock layer in the function layer (in left pinky extension)
 &base_layer {
   display-name = "Base";
   bindings = <
@@ -57,8 +56,8 @@
 
 // Override the symbols layer to add a sticky layer to the missing symbols
 //      -- The left-reach thumb now accesses the extra layer on hold, and enter on tap
-//      -- Je remplace le underscore par le hashtag, car je n’utilisais que celui de la touche morte. Je vire aussi le ?
-//      -- Et mets la tilde et le pipe en sixième colonne
+//      -- I replaced the underscore by the hashtag because I always use the one of the deadkey
+//      -- I add the tilde and the pipe in pinky extensions, on the sixth columns
 
 &symbols_layer {
   display-name = "Symbols";
