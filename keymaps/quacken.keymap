@@ -143,9 +143,9 @@
     num_row_layer: num_row_layer {
       display-name = "NumRow";
       bindings = <
-        &trans  &kp RS(N1)  &kp RS(N2) &kp RS(N3) &kp RS(N4) &kp RS(N5)       &kp LS(N6) &kp LS(N7) &kp LS(N8) &kp LS(N9) &kp LS(N0) &trans
-        &trans  &kp N1      &kp N2     &kp N3     &kp N4     &kp N5           &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &trans
-        &trans  &none       &none      S_MINUS    S_FSLH     &none            &none      S_COMMA    S_DOT      S_COLON    &none      &trans
+        &none   &none       &kp RS(N2) &kp RS(N3) &kp RS(N4) &kp RS(N5)       &none       &kp LS(N7) &kp LS(N8) &kp LS(N9) &none       &none
+        &trans  &kp RS(N1)  &kp N2     &kp N3     &kp N4     &kp N5           &kp LS(N6)  &kp N7     &kp N8     &kp N9     &kp LS(N0)  &trans
+        &none   &kp N1      &none      S_MINUS    S_FSLH     &none            &kp N6      S_COMMA    S_DOT      S_COLON    &kp N0      &none
                                       &trans  &kp RS(SPACE) &trans            &trans  &kp LS(SPACE) &kp RALT
       >;
     };
