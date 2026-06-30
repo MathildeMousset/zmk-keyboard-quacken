@@ -53,7 +53,7 @@
                             LTHUMB_TUCK  LTHUMB_HOME  LTHUMB_REACH    RTHUMB_REACH  RTHUMB_HOME  RTHUMB_TUCK
   >;
 };
-&none
+
 // Override the symbols layer to add a sticky layer to the missing symbols
 //      -- The left-reach thumb now accesses the extra layer on hold, and enter on tap
 //      -- I replaced the underscore by the hashtag because I always use the one of the deadkey
