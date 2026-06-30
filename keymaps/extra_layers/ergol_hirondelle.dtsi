@@ -140,9 +140,9 @@
     extra_symbols {
       display-name = "ExtraSymbols";
       bindings = <
-        &trans  &trans  &trans  &trans  &trans  &trans     &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  S_TILDE &trans  &trans  S_HASH  &trans     &trans  S_PIPE  &trans  &trans  S_QMARK &trans
-        &trans  &trans  &trans  &trans  &trans  &trans     &trans  &trans  &trans  &trans  &trans  &trans
+        &none   &none    &trans  &trans  &trans  &trans     &trans  &trans  &trans  &trans  &none   &none 
+        &trans  &trans   &trans  &trans  S_HASH  &trans     &trans  S_PIPE  &trans  &trans  &trans  &trans
+        &none   S_TILDE  &trans  &trans  &trans  &trans     &trans  &trans  &trans  &trans  S_QMARK &none
                                 &trans  &trans  &trans     &trans  &trans  &trans
       >;
     };
