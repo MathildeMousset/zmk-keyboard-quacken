@@ -122,7 +122,7 @@
 // #define HUMMINGBIRD
 
 // Activate the MARTINET layout
-#define MARTINET
+// #define MARTINET
 
 // Activate the  HIRONDELLE layout
 #define HIRONDELLE
